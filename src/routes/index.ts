@@ -1,4 +1,5 @@
 
+import textRoute from "@routes/text.route";
 import defaultRoute from "@routes/default.route";
 import { Router } from "express";
 
@@ -9,6 +10,10 @@ interface Route {
 
 const router = Router();
 const routes: Route[] = [
+    {
+        path: "/text",
+        route: textRoute,
+    },
     {
         path: "/default",
         route: defaultRoute,
