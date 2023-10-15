@@ -33,6 +33,7 @@ class Express {
 
         this.app.use(express.json());
         this.app.use(express.urlencoded({ extended: true }));
+        this.app.use(express.raw({ type: 'text/plain' })); // Middleware to parse request body as plain text
 
         this.app.use(env.app.routePrefix, routes);
         this.app.all("*", (req: Request, res: Response, next: NextFunction) => {

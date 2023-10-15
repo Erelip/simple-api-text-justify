@@ -4,11 +4,14 @@ import { BadRequestException, UnauthorizedException } from "@exceptions";
 
 class TextController {
     justify = async (req: Request, res: Response, next: NextFunction) => {
+        const text = req.body.toString();
         try {
-            const text = TextService.justify("test");
-            if (text == null)
+            const justify = TextService.justify(text);
+            if (justify == null)
                 throw new BadRequestException("Unknown action.");
-            return res.status(200).json('test');
+
+            res.setHeader('Content-Type', 'text/plain');
+            res.status(200).send(justify);
         } catch (err) {
             next(err);
         }

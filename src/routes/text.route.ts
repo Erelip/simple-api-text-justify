@@ -7,7 +7,6 @@ const router = Router();
 
 router.post(
     "/",
-    validate(TextSchema.TextSchema),
     TextController.justify
 );
 
