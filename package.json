@@ -4,6 +4,7 @@
   "main": "dist/index.ts",
   "license": "MIT",
   "scripts": {
+    "start": "nodemon",
     "dev": "nodemon",
     "build": "tsc && tsc-alias",
     "lint": "eslint",
