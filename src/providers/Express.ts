@@ -12,6 +12,8 @@ import routes from "@routes";
 import cors from "cors";
 import { NotFoundException } from "@exceptions";
 
+const port = process.env.PORT || 3000;
+
 class Express {
     private app: NativeExpress;
     private port: number;
@@ -43,7 +45,7 @@ class Express {
     };
 
     listen = () => {
-        this.app.listen(this.port, (err?: any) => {
+        this.app.listen(port, (err?: any) => {
             if (err) throw err;
             console.log(`> Ready on ${env.app.host}:${this.port}`);
         });
